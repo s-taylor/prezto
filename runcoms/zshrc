@@ -19,5 +19,8 @@ alias c='clear'
 # Reload zshrc
 alias reload='source ~/.zshrc'
 
+# Add Control + R history searching
+bindkey '^R' history-incremental-search-backward
+
 # Auto setup docker
 eval $(docker-machine env default)
