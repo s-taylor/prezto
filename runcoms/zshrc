@@ -15,3 +15,6 @@ fi
 # Setup aliases
 alias ls='ls -GFlash'
 alias c='clear'
+
+# Auto setup docker
+eval $(docker-machine env default)
