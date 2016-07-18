@@ -16,5 +16,8 @@ fi
 alias ls='ls -GFlash'
 alias c='clear'
 
+# Reload zshrc
+alias reload='source ~/.zshrc'
+
 # Auto setup docker
 eval $(docker-machine env default)
