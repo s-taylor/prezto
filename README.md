@@ -1,3 +1,7 @@
+# !!!WARNING!!!:
+
+This is my personal zprezto configuration, a fork of the author's version. If you want zprezto you probably want the original author's version here [here](https://github.com/sorin-ionescu/prezto)
+
 Prezto — Instantly Awesome Zsh
 ==============================
 
