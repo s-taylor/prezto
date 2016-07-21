@@ -27,3 +27,6 @@ bindkey '^R' history-incremental-search-backward
 
 # Auto setup docker
 eval $(docker-machine env default)
+
+# zsh-autosuggestions - accept suggestion
+bindkey '^e' autosuggest-accept
