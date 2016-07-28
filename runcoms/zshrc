@@ -30,3 +30,7 @@ eval $(docker-machine env default)
 
 # zsh-autosuggestions - accept suggestion
 bindkey '^e' autosuggest-accept
+
+# alt + arrow
+bindkey '^[[1;3D' backward-word
+bindkey '^[[1;3C' forward-word
