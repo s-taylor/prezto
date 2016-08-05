@@ -49,3 +49,6 @@ bindkey '^e' autosuggest-accept
 # Alt + arrow
 bindkey '^[[1;3D' backward-word
 bindkey '^[[1;3C' forward-word
+
+# Launch pathfinder app
+pf () { open -a "Path Finder.app" $1; }
