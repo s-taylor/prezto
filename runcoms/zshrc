@@ -22,7 +22,7 @@ alias c='clear'
 # Reload zshrc
 alias reload='source ~/.zshrc'
 
-# Add Control + R history searching
+# Add control + r history searching
 bindkey '^R' history-incremental-search-backward
 
 # Auto setup docker
@@ -31,6 +31,6 @@ eval $(docker-machine env default)
 # zsh-autosuggestions - accept suggestion
 bindkey '^e' autosuggest-accept
 
-# alt + arrow
+# Alt + arrow
 bindkey '^[[1;3D' backward-word
 bindkey '^[[1;3C' forward-word
