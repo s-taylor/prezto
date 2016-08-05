@@ -16,6 +16,21 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
+# Add /bin and /node_modules/.bin to path for every directory
+path=(
+  ./bin
+  ./node_modules/.bin
+  $path
+)
+
+# Add auto completion for /bin path
+zstyle -e ':completion:*' command-path \
+  '[[ -d $PWD/bin ]] && reply=($PWD/bin $path)'
+
+# Add auto completion for node_modules/.bin path
+zstyle -e ':completion:*' command-path \
+  '[[ -d $PWD/node_modules/.bin ]] && reply=($PWD/node_modules/.bin $path)'
+
 # Setup aliases
 alias c='clear'
 
