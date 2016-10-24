@@ -40,9 +40,6 @@ alias reload='source ~/.zshrc'
 # Add control + r history searching
 bindkey '^R' history-incremental-search-backward
 
-# Auto setup docker
-eval $(docker-machine env default)
-
 # zsh-autosuggestions - accept suggestion
 bindkey '^e' autosuggest-accept
 
