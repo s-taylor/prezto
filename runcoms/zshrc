@@ -49,3 +49,8 @@ bindkey '^[[1;3C' forward-word
 
 # Launch pathfinder app
 pf () { open -a "Path Finder.app" $1; }
+
+# Use Neovim where available
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi
