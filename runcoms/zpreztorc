@@ -33,8 +33,8 @@ zstyle ':prezto:load' pmodule \
   'utility' \
   'completion' \
   'prompt' \
-  'autosuggestions' \
-  'completion' \
+  'autosuggestions' \ #after syntax-highlighting AND after history-substring-search
+  'completion' \ #after utility
   'git' \
   'tmux'
 
