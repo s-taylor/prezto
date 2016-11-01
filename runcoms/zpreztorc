@@ -22,7 +22,10 @@ zstyle ':prezto:*:*' color 'yes'
 # zstyle ':prezto:load' zfunction 'zargs' 'zmv'
 
 # Set the Prezto modules to load (browse modules).
-# The order matters.
+# The order matters:-
+# completion          | after utility
+# syntax-highlighting | load second-to-last after 'utility' where last is 'prompt' AND before 'history-substring-search'
+# autosuggestions     | after 'syntax-highlighting' AND after 'history-substring-search'
 zstyle ':prezto:load' pmodule \
   'environment' \
   'terminal' \
@@ -31,12 +34,12 @@ zstyle ':prezto:load' pmodule \
   'directory' \
   'spectrum' \
   'utility' \
-  'completion' \
-  'prompt' \
-  'autosuggestions' \ #after syntax-highlighting AND after history-substring-search
-  'completion' \ #after utility
   'git' \
-  'tmux'
+  'tmux' \
+  'completion' \
+  'syntax-highlighting' \
+  'autosuggestions' \
+  'prompt'
 
 #
 # Autosuggestions
@@ -128,19 +131,19 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 
 # Set syntax highlighters.
 # By default, only the main highlighter is enabled.
-# zstyle ':prezto:module:syntax-highlighting' highlighters \
-#   'main' \
-#   'brackets' \
-#   'pattern' \
-#   'line' \
-#   'cursor' \
-#   'root'
+zstyle ':prezto:module:syntax-highlighting' highlighters \
+  'main' \
+  'brackets' \
+  'pattern' \
+  'line' \
+  'cursor' \
+  'root'
 #
 # Set syntax highlighting styles.
 # zstyle ':prezto:module:syntax-highlighting' styles \
-#   'builtin' 'bg=blue' \
-#   'command' 'bg=blue' \
-#   'function' 'bg=blue'
+  # 'builtin' 'bg=blue' \
+  # 'command' 'bg=blue' \
+  # 'function' 'bg=blue'
 
 #
 # Terminal
