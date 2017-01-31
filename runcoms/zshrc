@@ -57,3 +57,6 @@ bindkey '^[[1;3C' forward-word
 
 # Launch pathfinder app
 pf () { open -a "Path Finder.app" $1; }
+
+# Fuzzy Finder shell extensions
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
