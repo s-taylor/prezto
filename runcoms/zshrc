@@ -36,14 +36,17 @@ if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
 
-# Bind 'jj' to <Esc> when in insert mode
-bindkey -M viins 'jj' vi-cmd-mode
-
 # Setup aliases
 alias c='clear'
 
 # Reload zshrc
 alias reload='source ~/.zshrc'
+
+# Rename tmux window
+alias winr='tmux rename-window "${PWD##*/}"'
+
+# Bind 'jj' to <Esc> when in insert mode
+bindkey -M viins 'jj' vi-cmd-mode
 
 # Add control + r history searching
 bindkey '^R' history-incremental-search-backward
@@ -54,9 +57,6 @@ bindkey '^e' autosuggest-accept
 # Alt + arrow
 bindkey '^[[1;3D' backward-word
 bindkey '^[[1;3C' forward-word
-
-# Rename window
-alias winr=tmux rename-window "${PWD##*/}"
 
 # Launch pathfinder app
 pf () { open -a "Path Finder.app" $1; }
