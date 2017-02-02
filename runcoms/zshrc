@@ -39,8 +39,13 @@ fi
 # Setup aliases
 alias c='clear'
 
-# Reload zshrc
-alias reload='source ~/.zshrc'
+# Reload zshrc and tmux config
+reload() {
+  source ~/.zshrc
+  echo 'reloaded zshell config'
+  tmux source-file ~/.tmux.conf
+  echo 'reloaded tmux config'
+}
 
 # Rename tmux window
 alias rename='tmux rename-window "${PWD##*/}"'
