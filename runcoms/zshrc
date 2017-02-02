@@ -43,7 +43,7 @@ alias c='clear'
 alias reload='source ~/.zshrc'
 
 # Rename tmux window
-alias winr='tmux rename-window "${PWD##*/}"'
+alias rename='tmux rename-window "${PWD##*/}"'
 
 # Bind 'jj' to <Esc> when in insert mode
 bindkey -M viins 'jj' vi-cmd-mode
