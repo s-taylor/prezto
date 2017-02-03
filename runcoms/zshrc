@@ -49,12 +49,12 @@ reload() {
 
 # Find File
 findf() {
-  find ./ -name "$1"
+  find . -name "$1"
 }
 
 # Find Directory
 findd() {
-  find ./ -type d -name "$1"
+  find . -type d -name "$1"
 }
 
 # Rename tmux window
