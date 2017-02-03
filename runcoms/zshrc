@@ -47,6 +47,16 @@ reload() {
   echo 'reloaded tmux config'
 }
 
+# Find File
+findf() {
+  find ./ -name "$1"
+}
+
+# Find Directory
+findd() {
+  find ./ -type d -name "$1"
+}
+
 # Rename tmux window
 alias rename='tmux rename-window "${PWD##*/}"'
 
