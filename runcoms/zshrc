@@ -36,8 +36,36 @@ if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
 
+# Application Specific
+
+# Launch pathfinder app
+pf () { open -a "Path Finder.app" $1; }
+
+# Fuzzy Finder shell extensions
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Keybindings
+
+# Bind 'jj' to <Esc> when in insert mode
+bindkey -M viins 'jj' vi-cmd-mode
+
+# Add control + r history searching
+bindkey '^R' history-incremental-search-backward
+
+# zsh-autosuggestions - accept suggestion
+bindkey '^e' autosuggest-accept
+
+# Alt + arrow
+bindkey '^[[1;3D' backward-word
+bindkey '^[[1;3C' forward-word
+
+# Aliases and Functions
+
 # Setup aliases
 alias c='clear'
+
+# Rename tmux window
+alias rename='tmux rename-window "${PWD##*/}"'
 
 # Reload zshrc and tmux config
 reload() {
@@ -56,25 +84,3 @@ findf() {
 findd() {
   find . -path "./node_modules" -prune -o -type d -name "$1" -print
 }
-
-# Rename tmux window
-alias rename='tmux rename-window "${PWD##*/}"'
-
-# Bind 'jj' to <Esc> when in insert mode
-bindkey -M viins 'jj' vi-cmd-mode
-
-# Add control + r history searching
-bindkey '^R' history-incremental-search-backward
-
-# zsh-autosuggestions - accept suggestion
-bindkey '^e' autosuggest-accept
-
-# Alt + arrow
-bindkey '^[[1;3D' backward-word
-bindkey '^[[1;3C' forward-word
-
-# Launch pathfinder app
-pf () { open -a "Path Finder.app" $1; }
-
-# Fuzzy Finder shell extensions
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
