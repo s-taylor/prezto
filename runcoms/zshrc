@@ -67,6 +67,20 @@ alias c='clear'
 # Rename tmux window
 alias rename='tmux rename-window "${PWD##*/}"'
 
+# Npm reinstall
+alias npm-reinstall='rm -rf node_modules && npm install --cache-min 9999999'
+
+# Npm AU register
+alias npm-install-au='npm install --registryhttp://registry.npmjs.org.au'
+
+# Npm update
+npm-update() {
+  echo ">> UNINSTALLING $1"
+  npm uninstall --save $1
+  echo ">> INSTALLING $1"
+  npm install --save $1@latest
+}
+
 # Reload zshrc and tmux config
 reload() {
   source ~/.zshrc
