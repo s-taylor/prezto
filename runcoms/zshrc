@@ -67,6 +67,15 @@ alias c='clear'
 # Rename tmux window
 alias rename='tmux rename-window "${PWD##*/}"'
 
+# Setup tmux panes for development
+setup() {
+  tmux split-window -h
+  tmux resize-pane -R 80
+  tmux split
+  tmux select-pane -L
+  vim
+}
+
 # Npm reinstall
 alias npm-reinstall='rm -rf node_modules && npm install --cache-min 9999999'
 
