@@ -73,7 +73,8 @@ setup() {
   tmux resize-pane -R 80
   tmux split
   tmux select-pane -L
-  # Open vim with 3 vertical splits
+  # Open vim with 3 vertical splits and resize to equal width
+  sleep .5 # Needed to trigger resize
   vim -O3
 }
 
