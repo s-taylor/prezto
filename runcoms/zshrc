@@ -69,6 +69,7 @@ alias rename='tmux rename-window "${PWD##*/}"'
 
 # Setup tmux panes for development
 setup() {
+  rename
   tmux split-window -h
   tmux resize-pane -R 80
   tmux split
