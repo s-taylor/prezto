@@ -73,7 +73,8 @@ setup() {
   tmux resize-pane -R 80
   tmux split
   tmux select-pane -L
-  vim
+  # Open vim with 3 vertical splits
+  vim -O3
 }
 
 # Npm reinstall
