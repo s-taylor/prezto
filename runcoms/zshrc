@@ -106,10 +106,10 @@ reload() {
 
 # Find File
 findf() {
-  find . -path "./node_modules" -prune -o -type f -name "$1" -print
+  find . -and -not -path ./node_modules/* -and -not -path ./.git/* -type f -name "$1"
 }
 
 # Find Directory
 findd() {
-  find . -path "./node_modules" -prune -o -type d -name "$1" -print
+  find . -and -not -path ./node_modules/* -and -not -path ./.git/* -type d -name "$1"
 }
