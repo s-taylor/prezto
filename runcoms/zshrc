@@ -23,6 +23,9 @@ path=(
   $path
 )
 
+# Add path for Yarn
+export PATH="$PATH:`yarn global bin`"
+
 # Add auto completion for /bin path
 zstyle -e ':completion:*' command-path \
   '[[ -d $PWD/bin ]] && reply=($PWD/bin $path)'
