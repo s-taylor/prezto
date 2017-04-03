@@ -25,6 +25,7 @@ path=(
 
 # Add path for Yarn
 export PATH="$PATH:`yarn global bin`"
+export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
 
 # Add auto completion for /bin path
 zstyle -e ':completion:*' command-path \
