@@ -66,7 +66,12 @@ bindkey '^[[1;3C' forward-word
 # Aliases and Functions
 
 # Setup aliases
+
+# Clear screen
 alias c='clear'
+
+# Run git lg alias instead of zprezto default
+alias gl='git lg'
 
 # Rename tmux window
 alias rename='tmux rename-window "${PWD##*/}"'
