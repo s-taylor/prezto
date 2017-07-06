@@ -27,6 +27,11 @@ path=(
 export PATH="$PATH:`yarn global bin`"
 export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
 
+# Add go path (need to mkdir $HOME/go)
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
 # Add auto completion for /bin path
 zstyle -e ':completion:*' command-path \
   '[[ -d $PWD/bin ]] && reply=($PWD/bin $path)'
