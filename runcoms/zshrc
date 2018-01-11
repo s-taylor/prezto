@@ -27,6 +27,9 @@ path=(
 export PATH="$PATH:`yarn global bin`"
 export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
 
+# Add path for VS Code
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
 # Add go path (need to mkdir $HOME/go)
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
