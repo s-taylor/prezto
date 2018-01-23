@@ -48,6 +48,9 @@ if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
 
+# Disable zsh autocorrect
+unsetopt correct_all
+
 # Application Specific
 
 # Launch pathfinder app
