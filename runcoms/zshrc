@@ -44,9 +44,11 @@ if type nvim > /dev/null 2>&1; then
 fi
 
 # Disable zsh autocorrect
-unsetopt correct_all
+unsetopt correct
 
+# --------------------
 # Application Specific
+# --------------------
 
 # Launch pathfinder app
 pf () { open -a "Path Finder.app" $1; }
