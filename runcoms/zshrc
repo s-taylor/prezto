@@ -102,6 +102,9 @@ alias npm-reinstall='rm -rf node_modules && npm install --cache-min 9999999'
 # Npm AU register
 alias npm-install-au='npm install --registryhttp://registry.npmjs.org.au'
 
+# Clean all docker images (requires restart)
+alias docker-clean='rm -rf ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2'
+
 # Npm update
 npm-update() {
   echo ">> UNINSTALLING $1"
