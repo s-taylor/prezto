@@ -47,7 +47,7 @@ fi
 unsetopt correct
 
 # Setting fd as the default source for fzf
-export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_DEFAULT_COMMAND='fd --type f  --hidden --exclude .git'
 
 # --------------------
 # Application Specific
