@@ -79,6 +79,7 @@ bindkey '^[[1;3C' forward-word
 # Setup aliases
 
 # Clear screen
+alias C='tmux clear-history && clear'
 alias c='clear'
 
 # Run git lg alias instead of zprezto default
