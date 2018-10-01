@@ -104,7 +104,11 @@ setup() {
 alias npm-reinstall='rm -rf node_modules && npm install --cache-min 9999999'
 
 # List Linked Modules
-alias linked='npm ls -g --depth=0 --link=true'
+alias npm-link-global='\ls -F node_modules | sed -n 's/@$//p' | xargs npm ls -g --depth 0'
+alias npm-link-local='find node_modules -maxdepth 1 -type l -ls'
+
+# List Global Modules
+alias npm-global='npm list -g --depth=0'
 
 # Npm AU register
 alias npm-install-au='npm install --registryhttp://registry.npmjs.org.au'
