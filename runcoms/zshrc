@@ -11,3 +11,128 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+# Add NVM path
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+# Add /bin and /node_modules/.bin to path for every directory
+path=(
+  ./bin
+  ./node_modules/.bin
+  $path
+)
+
+# Add path for Yarn
+export PATH="$PATH:`yarn global bin`"
+export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
+
+# Add path for VS Code
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+# Add auto completion for /bin path
+zstyle -e ':completion:*' command-path \
+  '[[ -d $PWD/bin ]] && reply=($PWD/bin $path)'
+
+# Add auto completion for node_modules/.bin path
+zstyle -e ':completion:*' command-path \
+  '[[ -d $PWD/node_modules/.bin ]] && reply=($PWD/node_modules/.bin $path)'
+
+# Use Neovim where available
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi
+
+# Disable zsh autocorrect
+unsetopt correct
+
+# Setting fd as the default source for fzf
+export FZF_DEFAULT_COMMAND='fd --type f  --hidden --exclude .git'
+
+# --------------------
+# Application Specific
+# --------------------
+
+# Launch pathfinder app
+pf () { open -a "Path Finder.app" $1; }
+
+# Fuzzy Finder shell extensions
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Keybindings
+
+# Bind 'jj' to <Esc> when in insert mode
+bindkey -M viins 'jj' vi-cmd-mode
+
+# Add control + r history searching
+bindkey '^R' history-incremental-search-backward
+
+# zsh-autosuggestions - accept suggestion
+bindkey '^e' autosuggest-accept
+
+# Alt + arrow
+bindkey '^[[1;3D' backward-word
+bindkey '^[[1;3C' forward-word
+
+# Aliases and Functions
+
+# Setup aliases
+
+# Clear screen
+alias C='tmux clear-history && clear'
+alias c='clear'
+
+# Run git lg alias instead of zprezto default
+alias gl='git lg'
+
+# Rename tmux window
+alias rename='tmux rename-window "${PWD##*/}"'
+
+# Setup tmux panes for development
+setup() {
+  rename
+  tmux split-window -h
+  tmux resize-pane -R 50
+  tmux split
+  tmux select-pane -L
+  # Open vim with 3 vertical splits and resize to equal width
+  sleep .5 # Needed to trigger resize
+  vim -O2
+}
+
+# Npm reinstall
+alias npm-reinstall='rm -rf node_modules && npm install --cache-min 9999999'
+
+# List Linked Modules
+alias npm-link-global='\ls -F node_modules | sed -n 's/@$//p' | xargs npm ls -g --depth 0'
+alias npm-link-local='find node_modules -maxdepth 1 -type l -ls'
+
+# List Global Modules
+alias npm-global='npm list -g --depth=0'
+
+# Npm AU register
+alias npm-install-au='npm install --registryhttp://registry.npmjs.org.au'
+
+# Copy (yank) branch
+alias yb='git symbolic-ref --short HEAD | pbcopy'
+
+# Copy (yank) path
+alias yp='git symbolic-ref --short HEAD | pbcopy'
+
+# Reload zshrc and tmux config
+reload() {
+  source ~/.zshrc
+  echo 'reloaded zshell config'
+  tmux source-file ~/.tmux.conf
+  echo 'reloaded tmux config'
+}
+
+# Find File
+findf() {
+  find . -and -not -path ./node_modules/* -and -not -path ./.git/* -type f -name "$1"
+}
+
+# Find Directory
+findd() {
+  find . -and -not -path ./node_modules/* -and -not -path ./.git/* -type d -name "$1"
+}
