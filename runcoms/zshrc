@@ -68,7 +68,8 @@ bindkey -M viins 'jj' vi-cmd-mode
 bindkey '^R' history-incremental-search-backward
 
 # zsh-autosuggestions - accept suggestion
-bindkey '^e' autosuggest-accept
+bindkey '^e' end-of-line
+bindkey '^f' forward-word
 
 # Alt + arrow
 bindkey '^[[1;3D' backward-word
