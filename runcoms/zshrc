@@ -128,6 +128,17 @@ reload() {
   echo 'reloaded tmux config'
 }
 
+# free up space in docker
+docker-clean() {
+  echo 'running system prune...'
+  docker system prune -f
+  echo 'deleting dangling volumes...'
+  docker volume rm $(docker volume ls -qf dangling=true)
+}
+
+# kill all running docker containers
+alias docker-kill=docker kill $(docker ps -q)
+
 # Find File
 findf() {
   find . -and -not -path ./node_modules/* -and -not -path ./.git/* -type f -name "$1"
