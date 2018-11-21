@@ -137,7 +137,7 @@ docker-clean() {
 }
 
 # kill all running docker containers
-alias docker-kill=docker kill $(docker ps -q)
+alias docker-kill='docker kill $(docker ps -q)'
 
 # Find File
 findf() {
