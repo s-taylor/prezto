@@ -120,6 +120,9 @@ alias yb='git symbolic-ref --short HEAD | pbcopy'
 # Copy (yank) path
 alias yp='git symbolic-ref --short HEAD | pbcopy'
 
+# Scan Ips (assumes 192.168.1.x)
+alias ipscan='nmap -sP 192.168.1.0/24'
+
 # Reload zshrc and tmux config
 reload() {
   source ~/.zshrc
