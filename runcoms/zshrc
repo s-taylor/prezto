@@ -101,8 +101,8 @@ setup() {
   vim -O2
 }
 
-# Npm reinstall
-alias npm-reinstall='rm -rf node_modules && npm install --cache-min 9999999'
+# Notes (open markdown docs in vscode)
+alias notes='code ~/Dropbox/Documents - Simon/Markdown'
 
 # List Linked Modules
 alias npm-link-global='\ls -F node_modules | sed -n 's/@$//p' | xargs npm ls -g --depth 0'
