@@ -41,6 +41,7 @@ zstyle -e ':completion:*' command-path \
 # Use Neovim where available
 if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
+  alias vi='nvim'
 fi
 
 # Disable zsh autocorrect
@@ -50,16 +51,8 @@ unsetopt correct
 export FZF_DEFAULT_COMMAND='fd --type f  --hidden --exclude .git'
 
 # --------------------
-# Application Specific
-# --------------------
-
-# Launch pathfinder app
-pf () { open -a "Path Finder.app" $1; }
-
-# Fuzzy Finder shell extensions
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # Keybindings
+# --------------------
 
 # Bind 'jj' to <Esc> when in insert mode
 bindkey -M viins 'jj' vi-cmd-mode
@@ -93,7 +86,7 @@ alias rename='tmux rename-window "${PWD##*/}"'
 setup() {
   rename
   tmux split-window -h
-  tmux resize-pane -R 50
+  tmux resize-pane -R 70
   tmux split
   tmux select-pane -L
   # Open vim with 3 vertical splits and resize to equal width
@@ -131,6 +124,26 @@ reload() {
   echo 'reloaded tmux config'
 }
 
+# Find File
+findf() {
+  find . -and -not -path ./node_modules/* -and -not -path ./.git/* -type f -name "$1"
+}
+
+# Find Directory
+findd() {
+  find . -and -not -path ./node_modules/* -and -not -path ./.git/* -type d -name "$1"
+}
+
+# --------------------
+# Application Specific
+# --------------------
+
+# Launch pathfinder app
+pf () { open -a "Path Finder.app" $1; }
+
+# Fuzzy Finder shell extensions
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # free up space in docker
 docker-clean() {
   echo 'running system prune...'
@@ -142,12 +155,5 @@ docker-clean() {
 # kill all running docker containers
 alias docker-kill='docker kill $(docker ps -q)'
 
-# Find File
-findf() {
-  find . -and -not -path ./node_modules/* -and -not -path ./.git/* -type f -name "$1"
-}
-
-# Find Directory
-findd() {
-  find . -and -not -path ./node_modules/* -and -not -path ./.git/* -type d -name "$1"
-}
+# rbenv (used by neovim)
+eval "$(rbenv init -)"
