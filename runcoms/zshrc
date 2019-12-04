@@ -95,7 +95,8 @@ setup() {
 }
 
 # Notes (open markdown docs in vscode)
-alias notes='code ~/Dropbox/Documents - Simon/Markdown'
+alias notes='code ~/Dropbox/Documents\ -\ Simon/Markdown/'
+alias markdown='code ~/Dropbox/Documents\ -\ Simon/Markdown/'
 
 # List Linked Modules
 alias npm-link-global='\ls -F node_modules | sed -n 's/@$//p' | xargs npm ls -g --depth 0'
