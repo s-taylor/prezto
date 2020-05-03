@@ -50,12 +50,14 @@ unsetopt correct
 # Setting fd as the default source for fzf
 export FZF_DEFAULT_COMMAND='fd --type f  --hidden --exclude .git'
 
+# WSL ONLY
+if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
+  export NEOVIM_WIN_DIR="/mnt/c/tools/neovim/Neovim/bin"
+fi
+
 # --------------------
 # Keybindings
 # --------------------
-
-# Bind 'jj' to <Esc> when in insert mode
-bindkey -M viins 'jj' vi-cmd-mode
 
 # Add control + r history searching
 bindkey '^R' history-incremental-search-backward
