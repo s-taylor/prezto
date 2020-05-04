@@ -48,7 +48,7 @@ fi
 unsetopt correct
 
 # Setting fd as the default source for fzf
-export FZF_DEFAULT_COMMAND='fd --type f  --hidden --exclude .git'
+export FZF_DEFAULT_COMMAND='rg --files'
 
 # WSL ONLY
 if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
