@@ -48,7 +48,7 @@ fi
 unsetopt correct
 
 # Setting fd as the default source for fzf
-export FZF_DEFAULT_COMMAND='rg --files'
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
 
 # WSL ONLY
 if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
@@ -149,8 +149,12 @@ pf () { open -a "Path Finder.app" $1; }
 
 # free up space in docker
 docker-clean() {
+  echo 'killing running processes'
+  docker kill $(docker ps -q)
   echo 'running system prune...'
-  docker system prune -f
+  docker system prune -a
+  echo 'deleting images'
+  docker rmi $(docker images -a -q) -f
   echo 'deleting dangling volumes...'
   docker volume rm $(docker volume ls -qf dangling=true)
 }
@@ -159,4 +163,5 @@ docker-clean() {
 alias docker-kill='docker kill $(docker ps -q)'
 
 # rbenv (used by neovim)
+export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
