@@ -97,8 +97,16 @@ setup() {
 }
 
 # Notes (open markdown docs in vscode)
-alias notes='code ~/Dropbox/Documents\ -\ Simon/Markdown/'
-alias markdown='code ~/Dropbox/Documents\ -\ Simon/Markdown/'
+
+# WSL ONLY
+if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
+  alias nasmnt='sudo mount -t drvfs Y: /mnt/important'
+  alias notes='code /mnt/important/Documents\ -\ Simon/Markdown'
+  alias markdown='code /mnt/important/Documents\ -\ Simon/Markdown'
+else
+  alias notes='code ~/Dropbox/Documents\ -\ Simon/Markdown/'
+  alias markdown='code ~/Dropbox/Documents\ -\ Simon/Markdown/'
+fi
 
 # List Linked Modules
 alias npm-link-global='\ls -F node_modules | sed -n 's/@$//p' | xargs npm ls -g --depth 0'
