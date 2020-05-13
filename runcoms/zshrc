@@ -100,7 +100,7 @@ setup() {
 
 # WSL ONLY
 if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
-  alias nasmnt='sudo mount -t drvfs Y: /mnt/important'
+  alias mntnas='sudo mount -t drvfs Y: /mnt/important'
   alias notes='code /mnt/important/Documents\ -\ Simon/Markdown'
   alias markdown='code /mnt/important/Documents\ -\ Simon/Markdown'
 else
