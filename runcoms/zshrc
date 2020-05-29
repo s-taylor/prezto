@@ -119,10 +119,12 @@ alias npm-global='npm list -g --depth=0'
 alias npm-install-au='npm install --registryhttp://registry.npmjs.org.au'
 
 # Copy (yank) branch
-alias yb='git symbolic-ref --short HEAD | pbcopy'
 
-# Copy (yank) path
-alias yp='git symbolic-ref --short HEAD | pbcopy'
+if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
+  alias yb='git symbolic-ref --short HEAD | clip.exe'
+else
+  alias yb='git symbolic-ref --short HEAD | pbcopy'
+fi
 
 # Scan Ips (assumes 192.168.1.x)
 alias ipscan='nmap -sP 192.168.1.0/24'
