@@ -12,16 +12,18 @@ fi
 
 # Customize to your needs...
 
+export EDITOR='vim'
+
 # Add NVM path
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 # Add /bin and /node_modules/.bin to path for every directory
-path=(
-  ./bin
-  ./node_modules/.bin
-  $path
-)
+# path=(
+#   ./bin
+#   ./node_modules/.bin
+#   $path
+# )
 
 # Add path for Yarn
 export PATH="$PATH:`yarn global bin`"
@@ -175,3 +177,6 @@ alias docker-kill='docker kill $(docker ps -q)'
 # rbenv (used by neovim)
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+# Add linux brew to path
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
