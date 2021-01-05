@@ -19,11 +19,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 # Add /bin and /node_modules/.bin to path for every directory
-# path=(
-#   ./bin
-#   ./node_modules/.bin
-#   $path
-# )
+path=(
+  ./bin
+  ./node_modules/.bin
+  $path
+)
 
 # Add path for Yarn
 export PATH="$PATH:`yarn global bin`"
@@ -180,3 +180,9 @@ eval "$(rbenv init -)"
 
 # Add linux brew to path
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
+# aws-vault compono
+export AWS_VAULT_BACKEND=pass
+
+# connect to compono AWS cluster
+export KUBECONFIG=$HOME/.kube/config.aws-compono-test
