@@ -120,6 +120,10 @@ alias npm-global='npm list -g --depth=0'
 # Npm AU register
 alias npm-install-au='npm install --registryhttp://registry.npmjs.org.au'
 
+# Neovim nightly
+alias vim="~/applications/nvim.appimage"
+alias nvim="~/applications/nvim.appimage"
+
 # Copy (yank) branch
 
 if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
@@ -148,6 +152,10 @@ findf() {
 findd() {
   find . -and -not -path ./node_modules/* -and -not -path ./.git/* -type d -name "$1"
 }
+
+# Find Files with ripgrep
+# https://github.com/BurntSushi/ripgrep/issues/193
+alias rgf='rg --files | rg'
 
 # --------------------
 # Application Specific
@@ -183,6 +191,10 @@ eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 # aws-vault compono
 export AWS_VAULT_BACKEND=pass
+export GPG_TTY=$(tty)
 
 # connect to compono AWS cluster
 export KUBECONFIG=$HOME/.kube/config.aws-compono-test
+
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin
