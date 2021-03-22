@@ -86,18 +86,6 @@ alias gl='git lg'
 # Rename tmux window
 alias rename='tmux rename-window "${PWD##*/}"'
 
-# Setup tmux panes for development
-setup() {
-  rename
-  tmux split-window -h
-  tmux resize-pane -R 70
-  tmux split
-  tmux select-pane -L
-  # Open vim with 3 vertical splits and resize to equal width
-  sleep .5 # Needed to trigger resize
-  vim -O2
-}
-
 # Notes (open markdown docs in vscode)
 
 # WSL ONLY
@@ -156,6 +144,18 @@ findd() {
 # Find Files with ripgrep
 # https://github.com/BurntSushi/ripgrep/issues/193
 alias rgf='rg --files | rg'
+
+# Setup tmux panes for development
+setup() {
+  rename
+  tmux split-window -h
+  tmux resize-pane -R 70
+  tmux split
+  tmux select-pane -L
+  # Open vim with 3 vertical splits and resize to equal width
+  sleep .5 # Needed to trigger resize
+  vim -O2
+}
 
 # --------------------
 # Application Specific
