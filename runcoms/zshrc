@@ -109,8 +109,11 @@ alias npm-global='npm list -g --depth=0'
 alias npm-install-au='npm install --registryhttp://registry.npmjs.org.au'
 
 # Neovim nightly
-alias vim="~/applications/nvim.appimage"
-alias nvim="~/applications/nvim.appimage"
+# for OSX install with "brew install --HEAD neovin"
+if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
+  alias vim="~/applications/nvim.appimage"
+  alias nvim="~/applications/nvim.appimage"
+fi
 
 # Copy (yank) branch
 
@@ -187,7 +190,9 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 # Add linux brew to path
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
+  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+fi
 
 # aws-vault compono
 export AWS_VAULT_BACKEND=pass
