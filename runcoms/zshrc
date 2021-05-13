@@ -19,11 +19,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 # Add /bin and /node_modules/.bin to path for every directory
-path=(
-  ./bin
-  ./node_modules/.bin
-  $path
-)
+# path=(
+#   ./bin
+#   ./node_modules/.bin
+#   $path
+# )
 
 # Add path for Yarn
 export PATH="$PATH:`yarn global bin`"
@@ -134,15 +134,11 @@ reload() {
   echo 'reloaded tmux config'
 }
 
-# Find File
-findf() {
-  find . -and -not -path ./node_modules/* -and -not -path ./.git/* -type f -name "$1"
-}
-
-# Find Directory
-findd() {
-  find . -and -not -path ./node_modules/* -and -not -path ./.git/* -type d -name "$1"
-}
+# Add aliases for exa
+if type exa > /dev/null 2>&1; then
+  alias la='exa -la --group-directories-first'
+  alias ls='exa -a'
+fi
 
 # Find Files with ripgrep
 # https://github.com/BurntSushi/ripgrep/issues/193
