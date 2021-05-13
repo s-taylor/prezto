@@ -40,12 +40,6 @@ zstyle -e ':completion:*' command-path \
 zstyle -e ':completion:*' command-path \
   '[[ -d $PWD/node_modules/.bin ]] && reply=($PWD/node_modules/.bin $path)'
 
-# Use Neovim where available
-if type nvim > /dev/null 2>&1; then
-  alias vim='nvim'
-  alias vi='nvim'
-fi
-
 # Disable zsh autocorrect
 unsetopt correct
 
@@ -98,19 +92,22 @@ else
   alias markdown='code ~/Dropbox/Documents\ -\ Simon/Markdown/'
 fi
 
-# List Linked Modules
-alias npm-link-global='\ls -F node_modules | sed -n 's/@$//p' | xargs npm ls -g --depth 0'
-alias npm-link-local='find node_modules -maxdepth 1 -type l -ls'
-
 # List Global Modules
 alias npm-global='npm list -g --depth=0'
 
 # Npm AU register
 alias npm-install-au='npm install --registryhttp://registry.npmjs.org.au'
 
+
+# Use Neovim where available
+# if type nvim > /dev/null 2>&1; then
+#   alias vim='nvim'
+#   alias vi='nvim'
+# fi
+
 # Neovim nightly
-# for OSX install with "brew install --HEAD neovin"
-if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
+# for OSX install with "brew install --HEAD neovim"
+if type ~/applications/nvim.appimage > /dev/null 2>&1; then
   alias vim="~/applications/nvim.appimage"
   alias nvim="~/applications/nvim.appimage"
 fi
